@@ -1,0 +1,27 @@
+#! /bin/sh
+
+# Reference:
+#	1. Mastering Embedded Linux Programming: Chapter 10 (Adding a new daemon)
+#	2. https://buildroot.org/downloads/manual/manual.html#rootfs-custom
+
+case "$1" in
+  start)
+    echo "Loading modules: hello, faulty and scull"
+    /usr/bin/scull_load
+    /usr/bin/module_load faulty
+    modprobe hello
+    ;;
+  stop)
+    echo "Unloading all loaded modules from the kernel"
+    /usr/bin/scull_unload
+    /usr/bin/module_unload faulty
+    rmmod hello
+    ;;
+  *)
+    echo "Usage: $0 {start|stop}"
+  exit 1
+
+esac
+
+exit 0
+

@@ -1,0 +1,5 @@
+config BR2_PACKAGE_LDD
+	bool "lld"
+	help
+	  Includes the misc-modules and scull components to our target rfs.
+	  Used to exercise the load and unload scull drivers and some example drivers from misc-modules
