@@ -1,0 +1,4 @@
+config BR2_PACKAGE_CHAR_DEVICE_DRIVER
+	bool "char-device-driver"
+	help
+	  Includes character device driver, which will be loaded to the rfs of the image.
